@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+mnemonic.txt
+secrets/
+
+# Foundry / Solidity build artifacts
+broadcast/
+cache/
+out/
+artifacts/
+
+# Frontend build
+dist/
+build/
+.vite/
+coverage/
+coverage.json
+lcov.info
+*.lcov
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS and editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test / temp
+.tmp/
+temp/
+*.tmp
