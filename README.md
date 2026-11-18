@@ -4,11 +4,6 @@
 
 ChainProof combines SHA-256 file fingerprints, IPFS content addressing, and Ethereum-compatible smart contracts to record evidence and custody changes. A case-access portal and workspace let authorized users register evidence, compare files against on-chain fingerprints, and review custody activity.
 
-**Project status:** educational MVP for local development. It is not a production evidence-management system and does not establish a file's authenticity before registration or its legal admissibility.
-
-> [!CAUTION]
-> IPFS content may be publicly retrievable. Never upload real, confidential, personal, or otherwise sensitive case material. Use synthetic demo files only. A matching SHA-256 fingerprint proves that the bytes match the registered fingerprint; it does not prove who originally created the file or whether it was trustworthy when registered.
-
 ## What it does
 
 - **Register evidence:** hash a selected file with SHA-256, upload it through a configured backend IPFS provider, and record its digest and CID on-chain.
@@ -162,13 +157,12 @@ ChainProof/
 └── README.md
 ```
 
-## Important limitations
+## Security & scope
 
-- A blockchain record anchors the supplied fingerprint from registration onward; it cannot establish the file's provenance before registration.
-- IPFS content addressing is not encryption or access control. A public CID can expose the uploaded content.
-- Evidence identifiers, CIDs, hashes, wallet addresses, and chain activity are publicly visible on-chain. Files uploaded to a public IPFS network may also be retrieved by others; MongoDB case metadata is not written to the chain.
-- The default setup is local development, not a production deployment. Review authentication, infrastructure, privacy, backups, key management, and operational procedures before using any real case data.
-- Although the frontend has no signup page, backend case-creation endpoints are currently available; protect them before deploying the API publicly.
+- A SHA-256 match confirms that a file matches the fingerprint recorded at registration; it does not independently establish the file's provenance or legal admissibility.
+- IPFS is content-addressed, not private. Public CIDs may expose uploaded files, so use synthetic demo material only.
+- Evidence identifiers, CIDs, hashes, wallet addresses, and transaction activity are public on-chain. Case metadata stored in MongoDB is not written to the blockchain.
+- The included configuration is for local development. Before a public deployment, secure the case-creation endpoints and review authentication, infrastructure, privacy, backups, and key management.
 
 ## License
 
